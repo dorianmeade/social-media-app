@@ -15,8 +15,8 @@ module.exports = {
                 // check if user already liked post 
                 if(post.likes.find(likes => likes.username === username)){
                     //remove the like (unlike) 
-                    post.likes = post.likes.filter(likes => like.username !== username);
-                    await Post.save()
+                    post.likes = post.likes.filter((like) => like.username !== username);
+                    //await post.save()
                 } else {
                     //like the post 
                     post.likes.push({
