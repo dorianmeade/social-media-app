@@ -24,7 +24,7 @@ function PostForm() {
             });
             values.body = '';
         },
-        onError(err){ // set front end errors to back end errors
+        onError(err){ //fixed the error break bug
             console.log(err);
         },
     });
