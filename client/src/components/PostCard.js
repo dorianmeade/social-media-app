@@ -5,6 +5,9 @@ import moment from 'moment';
 
 import { AuthContext } from '../context/auth'
 import LikeButton from './LikeButton'
+import DeleteButton from './DeleteButton'
+import MyPopup from '../util/MyPopup'
+
 
 function PostCard({
     post: { body, createdAt, id, username, likeCount, commentCount, likes }
@@ -28,24 +31,20 @@ function PostCard({
                 <Card.Description>{body}</Card.Description>
             </Card.Content>
             <Card.Content extra>
-                <LikeButton user={ user } post={{ id, likes, likeCount }}/>
-                <Button labelPosition="right" as={Link} to={`/post/${id}`}>
-                    <Button color="teal" basic>
-                        <Icon name="comments" />
+                <LikeButton user={user} post={{ id, likes, likeCount }}/>
+                <MyPopup 
+                    content="Comment on post"
+                >
+                    <Button labelPosition="right" as={Link} to={`/posts/${id}`}>
+                        <Button color="teal" basic>
+                            <Icon name="comments" />
+                        </Button>
+                        <Label basic color="teal" pointing="left">
+                            {commentCount}
+                        </Label>
                     </Button>
-                    <Label basic color="teal" pointing="left">
-                        {commentCount}
-                    </Label>
-                </Button>
-                { user && user.username === username && (
-                    <Button 
-                        as="div" 
-                        color="red" 
-                        floated="right"
-                        onClick={() => console.log('delete post')}>
-                        <Icon name="trash" style={{ margin: 0 }}/>
-                    </Button>
-                )}
+                </MyPopup>
+                { user && user.username === username && ( <DeleteButton postId={id}/> )}
             </Card.Content>
         </Card>
     );

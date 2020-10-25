@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { useMutation } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
 
+import MyPopup from '../util/MyPopup'
+
 // use user prop to determine type of button to display 
 function LikeButton({user, post: { id, likeCount, likes}}){
     const [liked, setLiked] = useState('false'); 
@@ -39,12 +41,14 @@ function LikeButton({user, post: { id, likeCount, likes}}){
     )
 
     return(
-        <Button as="div" labelPosition="right" onClick={ user? likePost : undefined }>
-            {likeBtn}
-            <Label basic color="purple" pointing="left">
-                {likeCount}
-            </Label>
-        </Button>
+        <MyPopup content={liked ? "Unlike" : "Like"}>
+            <Button as="div" labelPosition="right" onClick={ user? likePost : undefined }>
+                {likeBtn}
+                <Label basic color="purple" pointing="left">
+                    {likeCount}
+                </Label>
+            </Button>
+        </MyPopup>
     )
 }
 
