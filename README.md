@@ -1,7 +1,7 @@
 # Full-stack social media app
 
-## Build Status
-In-progress, active
+## Demo 
+Live at [https://cranky-meitner-6bb4cc.netlify.app/](https://cranky-meitner-6bb4cc.netlify.app/) 
 
 ## Tech Stack
 
@@ -12,7 +12,17 @@ In-progress, active
 * Node.js - open-source, cross-platform, back-end, JavaScript 
 * GraphQL - data query and manipulation language for APIs, and a runtime for fulfilling queries with existing data
 
-## Credits 
-[freeCodeCamp.org](https://www.youtube.com/watch?v=n1mdAPFq2Os)
+## Usage 
 
-[![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)
+1. Fork or clone repository 
+2. Install dependencies 
+```shell
+npm i 
+```
+3. Run 
+```shell
+npm start
+```
+
+## Credits 
+[![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://www.youtube.com/watch?v=n1mdAPFq2Os)
